@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes  } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header';
 import Films from './Components/Films';
@@ -8,15 +8,21 @@ import Planets from './Components/Planets';
 import Species from './Components/Species';
 import Vehicles from './Components/Vehicles';
 import Starships from './Components/Starships';
+import Person from './Components/Person';
 
 function App() {
+
+   
+
   return (
     <div className="App">
       <Header/>
       <Routes>
         <Route path = '/' element = { <Home/> }></Route>
         <Route path = '/films' element = { <Films/> }></Route>
-        <Route path = '/people' element = { <People/> }></Route>
+        <Route path = '/people' element = { <People/> }>
+          <Route path = ':personId' element = { <Person/> }></Route>
+        </Route>
         <Route path = '/planets' element = { <Planets/> }></Route>
         <Route path = '/species' element = { <Species/> }></Route>
         <Route path = '/vehicles' element = { <Vehicles/> }></Route>

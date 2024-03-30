@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import './Categories.css';
 
 function People() {
     const [ people , setPeople ] = useState ([]);
@@ -13,11 +15,18 @@ function People() {
         <div>
             <ul>
                 {
-                    people.map( item => (
-                        <li key = {item}>{item.name}</li>
+                    people.map( (item , index) => (
+                        <li key = {item}>
+                            <nav>
+                                <NavLink to = {`/people/${index+1}`}>{item.name}</NavLink>
+                            </nav>
+                        </li>
                     ) )
                 }
             </ul>
+            <div>
+                <Outlet/>
+            </div>
         </div>
     );
 }
